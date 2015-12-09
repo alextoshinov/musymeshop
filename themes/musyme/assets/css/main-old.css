@@ -14,10 +14,10 @@ body {
     width:100%;
     font-family: 'HelveticaRegular', serif;
     background: url('../img/content-bg.png');
-/*    font-size: 62.5%;*/
+    font-size: 62.5%;
     background-size: auto 210px;
     min-height: 180px;
-    color: #ccc;
+
 }
 
 p{
@@ -42,71 +42,6 @@ h5 {
   padding-left: 15px;
   padding-right: 15px;
 }
-
-input, button, select, textarea {
-border-radius: 3px;
-border: none;
-background-color: #fff;
-padding: 2px 5px;
-color: #333;
-}
-
-textarea {
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    background-color: #333;
-    /*background-color: rgba(218,225,83,0.3);*/
-    color: #ccc;
-}
-
-.form-control {
-    color: #333;
-}
-
-.navbar {
-    border: none;
-}
-
-.alert {
-    background-color: #333;
-}
-
-.alert .close {
-    color: #fff !important;
-    font-weight: 400;
-    outline: none !important;
-}
-
-.alert.alert-success {
-    border: 2px solid #DAE153;
-    color: #DAE153;
-}
-
-.alert.alert-success.payment-success {
-    border-radius: 20px;
-}
-
-.alert.alert-success.payment-success .fa {
-    font-size: 20px;
-    padding-right: 10px;
-}
-
-.alert.alert-error{
-    border: 2px solid #f14646;
-    color: #f14646;
-}
-
-.alert.alert-error.payment-error {
-    border-radius: 20px;
-}
-
-.alert.alert-error.payment-error .fa {
-    font-size: 20px;
-    padding-right: 10px;
-}
-
-
-
 
 /* Custom page header */
 .header {
@@ -144,49 +79,28 @@ label {
     color:#26C8F6;
 }
 
-.price-text {
-    font-family:"Kristen ITC";
-    padding: 5px 10px;
-    background-color: #DAE153;
-    border-radius: 50%;
-    display: inline-block;
-    font-size: 30px;
-    line-height: 40px;
-}
-
-.categoryItemDetails {
-    font-family:"Kristen ITC";
-    color:#DAE153;  
-  font-size: 16px;
-    margin-top: 0 !important;
-    margin-bottom: 5px;
-}
-
-
 .categoryItem {
     padding: 30px 10px 40px 10px;
     
 }
 .price {
+   
     position: relative;
     right: 0;
     top: 0;
 }
 
 .price .price-text {
-     font-family:"Kristen ITC";
     padding: 5px 10px;
     display: inline-block;
     font-size: 26px;
     line-height: 36px;
     border-radius: 50%;
-    background-color: #DAE153;
-    color: #333;
+    display: inline-block;
+    font-size: 30px;
+    line-height: 40px;
 }
 
-.price:not(.promo) .price-text.promo-price{
-    display: none;
-}
 .price .price-text.basic-price{
     background-color: #DAE153;
     color: #333;
@@ -196,31 +110,32 @@ label {
     vertical-align: top;
 }
 
-.price.promo .price-text.promo-price{
-    display: inline-block;
+.price .price-text.promo-price{
     background-color: #be398a;
     color: #fff;
     margin-left: 10px;
 }
-.price .price-text + .currency {
-      font-family:"Kristen ITC";
+.currency {
+    font-family:"Kristen ITC";
     text-align: left;
     color: #DAE153;
     display: inline-block;
     font-size: 12px;
     margin-right: 3px;
-    position: absolute;
-    bottom: 10px;
 }
+
+.price .price-text.promo-price + .currency {
+    color: #fff;
+    }
     
    .price.promo .price-text.basic-price{ 
     margin-top: -10px;
-    margin-left: -35px;
+    margin-left: -30px;
     padding: 0;
     position: absolute;
     color: #DAE153;
     background-color: transparent;
-    font-size: 20px;
+    font-size: 22px;
    }
 
 .price.promo .basic-price:before {
@@ -233,20 +148,13 @@ label {
     width: 100%;
 }
 
-.price .price-text.promo-price + .currency {
+.categoryItem .currency {
+    position: absolute;
+    bottom: 10px;
+}
+
+.price.promo .basic-price + .currency {
     display: none;
-}
-
-.price.promo .price-text.promo-price + .currency {
-    display: inline-block;
-}
-
-.price.promo .price-text.basic-price + .currency {
-    display: none;
-}
-
-.order-qty {
-    color: #fff;
 }
 
 .marginTop10 {
@@ -254,19 +162,14 @@ label {
 }
 
 .categoryItemDetails {
-  color:#DAE153;  
+    font-family:"Kristen ITC";
+    color:#DAE153;  
 /*  font-size: 16px;*/
     margin-top: 0 !important;
     margin-bottom: 5px;
 }
 
-.previewImg {
-    min-height: 275px;
-    cursor: pointer;
-}
-
 .descItem {
-     font-family:"Kristen ITC";
     color: #ccc;
     font-size: 14px;
     display: block;
@@ -297,16 +200,8 @@ form-control {
     background-color: #555!important;
     border: 1px solid #DAE153!important;
 }
-
-.form-horizontal .control-label,
-label {
-    color: #fff;
-    text-shadow: none;
-    font-weight: 400;
-}
-
 /***********************
-  CUSTOM BTN VALUES
+  CUSTON BTN VALUES
 ************************/
 
 .btn {
@@ -316,26 +211,17 @@ label {
 }
 
 .btn-lg, .btn-group-lg > .btn {
-    /*padding: 4px 20px !important;*/
-    padding: 3px 25px 7px 25px !important;
+    padding: 4px 20px !important;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
 }
 
-.btn-primary.cart {
+.btn-primary {
     background: #F77E47;
-    color: #fff;
-    margin-top: 5px;
+    color: #ffffff;
 }
-
-.btn-primary .fa-lg  {
-    font-size: 1em;
-    line-height: 0;
-    padding-right: 3px;
-}
-
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     background: #C5643A;
 }
@@ -477,17 +363,18 @@ th, td {
     text-align: center;
 }
         
-
+        
 /* ------------------- FOOTER ---------------------*/
+
 
 footer {
     width: 100%;
     position: fixed;
     bottom: 0;
-    padding-top: 5px;
+    padding-top: 3px;
     background-color: #fff;
-    color: #333;
     text-align: center;
+    height: 4em;
     border-top: 3px solid #d9e252;
     z-index: 1;
 }
@@ -496,6 +383,7 @@ footer .copy, .footer-menu {
     font-family: Arial;
     font-size: 12px;
     font-weight: normal;
+    font-style: italic;
     text-align: center;
     padding: 0 10px;
 }
@@ -533,11 +421,11 @@ footer ul.footer-menu li{
 
 
 div#header-container {
-    background-image: url("../img/header-bg_2500.jpg");
+    background-image: url("../img/header-bg.jpg");
     background-position: center top;
     background-repeat: no-repeat;
-    background-size: auto 190px;
-    min-height: 190px;
+    background-size: auto 210px;
+    min-height: 210px;
     padding-top: 20px;
     text-align: center;
     width: 100%;
@@ -563,7 +451,7 @@ div#header-container div#logo-container>img{
 #search {
     border-color: #DDE746;
     border-style: solid 2px;
-    border-radius: 13px;
+    border-radius: 20px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -601,33 +489,19 @@ form.form-search:before {
 .header-cart-menu {
     position: fixed;
     right: 10px;
-    top: 0;
+    top:10px;
     cursor: pointer;
-}
-
-
-.header-cart-menu .nav > li > a {
-    padding: 10px;
 }
 
 .home-nav-list{
     list-style-type: none;
 }
-
 .badge {
+    background-color: #DAE153 !important;
     color: #333;
-    background-color: #DAE153;
-    font-weight: 400;
     font-size: 12px !important;
     font-family: 'HelveticaRegular';
-    margin:5px 0;
   }
-  
-  .badge.label-success {
-    background-color: #DAE153;
-    display: none;
-  }
-  
 .header-links ul{
   font-size: 12px;
 }
@@ -667,29 +541,33 @@ nav {
     display: inline-block;
     text-align: center;
     position: relative;
-    top: 10px;
+    top: 20px;
 }
 
 nav ul.nav-list {
     list-style-type: none;
+    padding: 0;
 }
 
 nav ul.nav-list>li {
     float: left;
     margin: 0 10px;
+    padding: 5px 5px 0 5px;
 }
 
 nav ul.nav-list>li a {
     text-decoration: none;
     color: #333;
-}    
-   nav ul.nav-list>li a > img {
+}
+
+nav ul.nav-list>li a > img {
     max-width: 60px;
 }
 
 nav ul.nav-list>li:hover {
     background-color: #e8f258;
 }
+
 
 nav>ul>li:hover {
     border-radius: 50%;
@@ -705,10 +583,13 @@ nav ul li:hover > ul {
 
 nav ul li.lang{
     background: url('../img/nav-btn3-bg.png') no-repeat;
-    background-position: top;
     background-size: 100%;
     width: 60px;
     height: 60px;
+}
+
+
+nav ul li.lang > a{
     position: relative;
 }
 
@@ -720,7 +601,8 @@ nav ul li.lang>a>img{
 
 
 ul.sub-nav-list {
-    min-width: 380px;
+/*    
+    min-width: 410px;*/
     position: absolute;
     width: 100%;
     display: none;
@@ -729,10 +611,11 @@ ul.sub-nav-list {
     top: 100%;
     margin-top: 0;
     right: 0; 
-    left: -160px; 
+    left: 0; 
     background-color: rgba(217, 226, 82, 1);
     border-radius: 10px ;
     z-index: 44;
+
 }
 
 ul.sub-nav-list li {
@@ -746,7 +629,7 @@ ul.sub-nav-list li img >a {
 }
 
 ul.sub-nav-list>li>a>img {
-    box-shadow: 0 5px 5px rgba(17, 17, 17, 0.5);  
+    box-shadow:  0 5px 5px rgba(17, 17, 17, 0.5);  
 }
 
 
@@ -771,11 +654,6 @@ ul.sub-nav-list>li>a>img {
     background: #222;
 }
 
-.nav > li > a {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

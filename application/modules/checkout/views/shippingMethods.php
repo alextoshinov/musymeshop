@@ -38,6 +38,7 @@
                 {
                     //successful, refresh the summary
                     getCartSummary();
+                    getPaymentMethods();
                 }
                 $('#shippingMethod').spin(false);
             });

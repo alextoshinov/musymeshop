@@ -33,7 +33,7 @@ foreach ($order->items as $item)
             <td style="width:40%; vertical-align:top;">
                 <strong><?php echo lang('bill_to_address');?></strong><br/>
                 <?php echo format_address([
-                    'company'=>$order->billing_company,
+//                    'company'=>$order->billing_company,
                     'firstname'=>$order->billing_firstname,
                     'lastname'=>$order->billing_lastname,
                     'phone'=>$order->billing_phone,
@@ -50,7 +50,7 @@ foreach ($order->items as $item)
             <td style="width:40%; vertical-align:top;" class="packing">
                 <strong><?php echo lang('ship_to_address');?></strong><br/>
                 <?php echo format_address([
-                    'company'=>$order->shipping_company,
+//                    'company'=>$order->shipping_company,
                     'firstname'=>$order->shipping_firstname,
                     'lastname'=>$order->shipping_lastname,
                     'phone'=>$order->shipping_phone,

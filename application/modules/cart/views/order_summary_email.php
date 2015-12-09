@@ -54,7 +54,7 @@ $addressCell = 'style="border:1px solid #d6d4d4; padding:10px;background-color:#
             <div <?php echo $addressTitle;?>> <?php echo lang('billing_address');?> </div>
 
             <?php echo format_address([
-                'company'=>$order->billing_company,
+//                'company'=>$order->billing_company,
                 'firstname'=>$order->billing_firstname,
                 'lastname'=>$order->billing_lastname,
                 'phone'=>$order->billing_phone,
@@ -71,7 +71,7 @@ $addressCell = 'style="border:1px solid #d6d4d4; padding:10px;background-color:#
             <div <?php echo $addressTitle;?>> <?php echo lang('shipping_address');?> </div>
 
             <?php echo format_address([
-                'company'=>$order->shipping_company,
+//                'company'=>$order->shipping_company,
                 'firstname'=>$order->shipping_firstname,
                 'lastname'=>$order->shipping_lastname,
                 'phone'=>$order->shipping_phone,

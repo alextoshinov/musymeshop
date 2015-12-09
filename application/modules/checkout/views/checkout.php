@@ -115,20 +115,20 @@
 
         $.each(errors, function(key,val) {
 
-            if(key == 'inventory')
+            if(key === 'inventory')
             {
                 setInventoryErrors(val);
                 $('#summaryErrors').text('<?php echo lang('some_items_are_out_of_stock');?>').show();
             }
-            else if(key == 'shipping')
+            else if(key === 'shipping')
             {
                 showShippingError(val);
             }
-            else if(key == 'shippingAddress')
+            else if(key === 'shippingAddress')
             {
                 $('#addressError').text('<?php echo lang('error_shipping_address')?>').show();
             }
-            else if(key == 'billingAddress')
+            else if(key === 'billingAddress')
             {
                 $('#addressError').text('<?php echo lang('error_billing_address')?>').show();
             }
@@ -138,9 +138,9 @@
     $(document).ready(function(){
         //getBillingAddressForm();
         //getShippingAddressForm();
-        //getShippingMethods();
+//        getShippingMethods();
         getCartSummary();
-        getPaymentMethods();
+//        getPaymentMethods();
     });
 
     function getCartSummary(callback)
@@ -151,7 +151,7 @@
         $('#orderSummary').spin();
         $.post('<?php echo site_url('cart/summary');?>', function(data) {
             $('#orderSummary').html(data);
-            if(callback != undefined)
+            if(callback !== undefined)
             {
                 callback();
             }

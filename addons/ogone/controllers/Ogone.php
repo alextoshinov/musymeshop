@@ -4,40 +4,86 @@ use Ogone\Passphrase;
 use Ogone\Ecommerce\EcommercePaymentRequest;
 use Ogone\ShaComposer\AllParametersShaComposer;
 use Ogone\FormGenerator\SimpleFormGenerator;
+use Ogone\ParameterFilter\ShaInParameterFilter;
+//
+use Ogone\Ecommerce\EcommercePaymentResponse;
+use Ogone\ParameterFilter\ShaOutParameterFilter;
 
-$passphrase = new Passphrase('my-sha-in-passphrase-defined-in-ogone-interface');
-    $shaComposer = new AllParametersShaComposer($passphrase);
-    $shaComposer->addParameterFilter(new ShaInParameterFilter); //optional
 
-    $ecommercePaymentRequest = new EcommercePaymentRequest($shaComposer);
-
-    // Optionally set Ogone uri, defaults to TEST account
-    //$ecommercePaymentRequest->setOgoneUri(EcommercePaymentRequest::PRODUCTION);
-
-    // Set various params:
-    $ecommercePaymentRequest->setOrderid('123456');
-    $ecommercePaymentRequest->setAmount(150); // in cents
-    $ecommercePaymentRequest->setCurrency('EUR');
-    // ...
-
-    $ecommercePaymentRequest->validate();
-
-    $formGenerator = new SimpleFormGenerator;
-    $html = $formGenerator->render($ecommercePaymentRequest);
-    // Or use your own generator. Or pass $ecommercePaymentRequest to a view
 class Ogone extends Front {
-
+    
+    private $settings;
+    private $customer;
+    private $amount;
     public function __construct()
     {
         parent::__construct();
         \CI::lang()->load('ogone');
+        $this->settings = \CI::Settings()->get_settings('ogone');
+        $this->customer = \GC::getCustomer();
+        $this->amount = \GC::getGrandTotal();
     }
-
     //back end installation functions
     public function checkoutForm()
     {
-        //set a default blank setting for flatrate shipping
-        $this->partial('ogoneCheckoutForm');    
+        
+        $passphrase = new Passphrase($this->settings['shain']);
+        $shaComposer = new AllParametersShaComposer($passphrase);
+        $shaComposer->addParameterFilter(new ShaInParameterFilter); //optional
+
+        $ecommercePaymentRequest = new EcommercePaymentRequest($shaComposer);
+
+        // Optionally set Ogone uri, defaults to TEST account
+        //$ecommercePaymentRequest->setOgoneUri(EcommercePaymentRequest::PRODUCTION);
+
+        // Set various params:
+        $ecommercePaymentRequest->setPspid($this->settings['pspid']);
+        $ecommercePaymentRequest->setOrderid(\GC::submitOrder());
+//        $ecommercePaymentRequest->setOrderDescription('@@@@@@@');
+        $ecommercePaymentRequest->setEmail($this->customer->email);
+        $amount = $this->amount * 100;
+        $ecommercePaymentRequest->setAmount(intval($amount)); // in cents
+        $ecommercePaymentRequest->setCurrency('EUR');
+
+        // ...
+
+        $ecommercePaymentRequest->validate();
+
+        $formGenerator = new SimpleFormGenerator;
+        $data['form'] = $formGenerator->render($ecommercePaymentRequest);
+        $this->partial('ogoneCheckoutForm', $data);    
+    }
+    
+    public function Accept()
+    {
+
+        $ecommercePaymentResponse = new EcommercePaymentResponse($_REQUEST);
+
+        $passphrase = new Passphrase($this->settings['shaout']);
+        $shaComposer = new AllParametersShaComposer($passphrase);
+        $shaComposer->addParameterFilter(new ShaOutParameterFilter); //optional
+
+        if($ecommercePaymentResponse->isValid($shaComposer) && $ecommercePaymentResponse->isSuccessful()) {
+            $payment = [
+                'order_id' => \GC::getAttribute('id'),
+                'amount' => $_REQUEST['amount'],
+                'status' => 'processed',
+                'payment_module' => 'Ogone',
+                'description' => lang('charge_with_ogone'),
+     
+            ];
+
+            \CI::Orders()->savePaymentInfo($payment);
+
+            $orderId = \GC::submitOrder();
+            redirect('order-complete/'.$orderId);
+            
+        }
+        else {
+            // perform logic when the validation fails
+            echo json_encode(['errors'=>$_REQUEST]);
+            return false;
+        } 
     }
 
     public function isEnabled()

@@ -50,7 +50,7 @@
                 <?php if($module['class']->isEnabled()):?>
                     <tr onclick="$(this).find('input').prop('checked', true).trigger('change');">
                         <td style="width:20px;"><input type="radio" name="paymentMethod" value="payment-<?php echo $key;?>"></td>
-                        <td><?php echo $module['class']->getName();?></td>
+                        <td style="text-align:left"><?php echo $module['class']->getName();?></td>
                     </tr>
                 <?php endif;?>
             <?php endforeach;?>
@@ -69,6 +69,7 @@
         </div>
     </div>
     <script>
+        $(".paymentMethod").hide();
         $('[name="paymentMethod"]').change(function(){
             var paymentMethod = $(this);
             $('.paymentMethod').hide();

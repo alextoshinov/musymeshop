@@ -16,7 +16,12 @@ class AdminOgone extends Admin {
     {
         //set a default blank setting for flatrate shipping
         \CI::Settings()->save_settings('payment_modules', array('ogone'=>'1'));
-        \CI::Settings()->save_settings('ogone', array('enabled'=>'1'));
+        \CI::Settings()->save_settings('ogone', array(
+            'enabled'=>'1',
+            'pspid'=>'mypspID',
+            'shain'=>'mySHA1IN',
+            'shaout'=>'mySHA1OUT'
+            ));
 
         redirect('admin/payments');
     }
@@ -36,17 +41,18 @@ class AdminOgone extends Admin {
         \CI::load()->library('form_validation');
 
         \CI::form_validation()->set_rules('enabled', 'lang:enabled', 'trim|numeric');
-
+        \CI::form_validation()->set_rules('pspid', 'lang:your_seller_id', 'trim');
+        \CI::form_validation()->set_rules('shain', 'lang:SHA-1-IN', 'trim');
+        \CI::form_validation()->set_rules('shaout', 'lang:SHA-1-OUT', 'trim');
         if (\CI::form_validation()->run() == FALSE)
         {
             $settings = \CI::Settings()->get_settings('ogone');
-            $enabled = $settings['enabled'];
 
-            $this->view('ogone_form', ['enabled'=>$enabled]);
+            $this->view('ogone_form', $settings);
         }
         else
         {
-            \CI::Settings()->save_settings('ogone', array('enabled'=>$_POST['enabled']));
+            \CI::Settings()->save_settings('ogone', \CI::input()->post());
             redirect('admin/payments');
         }
     }

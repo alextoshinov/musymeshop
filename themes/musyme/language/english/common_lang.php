@@ -268,4 +268,6 @@ $lang['quantity'] = 'Quantity';
 $lang['price'] = 'Price';
 $lang['totals'] = 'Totals';
 $lang['product_action'] = 'Action';
+$lang['form_add_to_cart'] = 'Add to cart';
+$lang['label_quantity'] = 'Quantity';
 

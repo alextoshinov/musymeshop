@@ -53,7 +53,7 @@
                         <br />
                         <button type="button" class="btn btn-primary btn-lg round">
                             <i class="fa fa-shopping-cart fa-lg"></i>
-                            <?php echo lang('Add to cart');?>
+                            <?php echo lang('form_add_to_cart');?>
                         </button>
                     </div>                    
                 </div>

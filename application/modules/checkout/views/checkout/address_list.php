@@ -68,19 +68,19 @@ function deleteAddress(id)
 $('#addAddress').click(function(){
     $('.checkoutAddress').spin();
     $('.checkoutAddress').load('<?php echo site_url('addresses/form');?>');
-})
+});
 
 $('[name="billing_address"]').change(function(){
     $('#billingAddress').spin();
     $.post('<?php echo site_url('checkout/address');?>', {'type':'billing', 'id':$(this).val()}, function(data){
-        if(data.error != undefined)
+        if(data.error !== undefined)
         {
             alert(data.error);
             closeAddressForm();
         }
         else
         {
-            getCartSummary();
+            //getCartSummary();
         }
         $('#billingAddress').spin(false);
     });
@@ -89,7 +89,7 @@ $('[name="billing_address"]').change(function(){
 $('[name="shipping_address"]').change(function(){
     $('#shipingAddress').spin();
     $.post('<?php echo site_url('checkout/address');?>', {'type':'shipping', 'id':$(this).val()}, function(data){
-        if(data.error != undefined)
+        if(data.error !== undefined)
         {
             alert(data.error);
             closeAddressForm();
@@ -105,12 +105,12 @@ $('[name="shipping_address"]').change(function(){
 var billingAddresses = $('[name="billing_address"]');
 var shippingAddresses = $('[name="shipping_address"]');
 
-if(billingAddresses.length == 1)
+if(billingAddresses.length === 1)
 {
     billingAddresses.attr('checked', true).change();
 }
 
-if(shippingAddresses.length == 1)
+if(shippingAddresses.length === 1)
 {
     shippingAddresses.attr('checked', true).change();
 }

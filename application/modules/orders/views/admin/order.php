@@ -16,7 +16,7 @@
         <div class="col-md-3">
             <h3><?php echo lang('shipping_address');?></h3>
             <?php echo format_address([
-                'company'=>$order->shipping_company,
+//                'company'=>$order->shipping_company,
                 'firstname'=>$order->shipping_firstname,
                 'lastname'=>$order->shipping_lastname,
                 'phone'=>$order->shipping_phone,
@@ -32,7 +32,7 @@
         <div class="col-md-3">
             <h3><?php echo lang('billing_address');?></h3>
             <?php echo format_address([
-                'company'=>$order->billing_company,
+//                'company'=>$order->billing_company,
                 'firstname'=>$order->billing_firstname,
                 'lastname'=>$order->billing_lastname,
                 'phone'=>$order->billing_phone,

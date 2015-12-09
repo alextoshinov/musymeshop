@@ -90,7 +90,7 @@
         </div>
     
 
-            <?php echo form_open('cart/add-to-cart', 'id="add-to-cart"');?>
+            <?php echo form_open('cart/add-to-cart', 'id="add-to-cart" class="form-inline"');?>
             <input type="hidden" name="cartkey" value="<?php echo CI::session()->flashdata('cartkey');?>" />
             <input type="hidden" name="id" value="<?php echo $product->id?>"/>
 
@@ -133,11 +133,11 @@
                         }
 
                         if($option->type == 'textfield'):?>
-                            <input type="text" name="option[<?php echo $option->id;?>]" value="<?php echo $value;?>"/>
+                            <input class="form-control" type="text" name="option[<?php echo $option->id;?>]" value="<?php echo $value;?>"/>
                         <?php elseif($option->type == 'textarea'):?>
-                            <textarea name="option[<?php echo $option->id;?>]"><?php echo $value;?></textarea>
+                            <textarea class="form-control" name="option[<?php echo $option->id;?>]"><?php echo $value;?></textarea>
                         <?php elseif($option->type == 'droplist'):?>
-                            <select name="option[<?php echo $option->id;?>]">
+                            <select class="form-control" name="option[<?php echo $option->id;?>]">
                                 <option value=""><?php echo lang('choose_option');?></option>
 
                             <?php foreach ($option->values as $values):
@@ -168,7 +168,7 @@
                                     $checked = ' checked="checked"';
                                 }?>
                                 <div>
-                                    <input<?php echo $checked;?> type="radio" name="option[<?php echo $option->id;?>]" value="<?php echo $values->id;?>"/>
+                                    <input<?php echo $checked;?> type="radio" name="option[<?php echo $option->id;?>]" value="<?php echo $values->id;?>" class="form-control"/>
                                     <?php echo($values->price != 0)?'(+'.format_currency($values->price).') ':''; echo $values->name;?>
                                 </div>
                             <?php endforeach;?>
@@ -182,7 +182,7 @@
                                 {
                                     $checked = ' checked="checked"';
                                 }?>
-                                <div><input<?php echo $checked;?> type="checkbox" name="option[<?php echo $option->id;?>][]" value="<?php echo $values->id;?>"/>
+                                <div><input<?php echo $checked;?> type="checkbox" name="option[<?php echo $option->id;?>][]" value="<?php echo $values->id;?>" class="form-control"/>
                                 <?php echo($values->price != 0 && $option->name != 'Buy a Sample')?'('.format_currency($values->price).') ':''; echo $values->name;?></div>
                             <?php endforeach; ?>
                             </label>
@@ -196,12 +196,14 @@
             <?php if(!config_item('inventory_enabled') || config_item('allow_os_purchase') || !(bool)$product->track_stock || $product->quantity > 0) : ?>
 
                 <?php if(!$product->fixed_quantity) : ?>
-
-                        <strong>Quantity&nbsp;</strong>
-                        <input type="text" name="quantity" value="1" style="width:50px; display:inline"/>&nbsp;
-                        <button class="btn btn-primary btn-lg round add-to-cart" type="button" value="submit" onclick="addToCart($(this));"><i class="fa fa-shopping-cart fa-sm"></i> <?php echo lang('form_add_to_cart');?></button>
+                <div class="form-group">
+                        <label class="text-orange"><?php echo lang('label_quantity');?></label>
+                        <input type="text" name="quantity" value="1" style="width:50px; display:inline" class="form-control" />
+                </div>       
+                        <button class="btn btn-primary btn-lg round" type="button" value="submit" onclick="addToCart($(this));"><i class="fa fa-shopping-cart fa-sm"></i> <?php echo lang('form_add_to_cart');?></button>
+                        
                 <?php else: ?>
-                        <button class="btn btn-primary btn-lg round add-to-cart" type="button" value="submit" onclick="addToCart($(this));"><i class="fa fa-shopping-cart fa-sm"></i> <?php echo lang('form_add_to_cart');?></button>
+                        <button class="btn btn-primary btn-lg round" type="button" value="submit" onclick="addToCart($(this));"><i class="fa fa-shopping-cart fa-sm"></i> <?php echo lang('form_add_to_cart');?></button>
                 <?php endif;?>
 
             <?php endif;?>

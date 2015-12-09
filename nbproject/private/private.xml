@@ -4,44 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/www/musymeshop/addons/ogone/manifest.php</file>
-            <file>file:/home/www/musymeshop/application/helpers/MY_url_helper.php</file>
-            <file>file:/home/www/musymeshop/install/installer/views/index.php</file>
-            <file>file:/home/www/musymeshop/install/database.sql</file>
-            <file>file:/home/www/musymeshop/application/modules/login/views/login.php</file>
-            <file>file:/home/www/musymeshop/addons/cod/views/admin/cod_form.php</file>
-            <file>file:/home/www/musymeshop/application/modules/checkout/controllers/Checkout.php</file>
-            <file>file:/home/www/musymeshop/themes/musyme/assets/js/gumbo.js</file>
-            <file>file:/home/www/musymeshop/application/modules/checkout/views/paymentMethods.php</file>
-            <file>file:/home/www/musymeshop/application/core/Controller.php</file>
-            <file>file:/home/www/musymeshop/themes/musyme/assets/css/main.css</file>
-            <file>file:/home/www/musymeshop/application/core/GoCart___.php</file>
-            <file>file:/home/www/musymeshop/install/installer/controllers/Installer.php</file>
-            <file>file:/home/www/musymeshop/addons/ogone/views/ogoneCheckoutForm.php</file>
-            <file>file:/home/www/musymeshop/application/modules/cart/views/cart_summary_table.php</file>
-            <file>file:/home/www/musymeshop/application/modules/checkout/views/checkout/address_list.php</file>
-            <file>file:/home/www/musymeshop/themes/musyme/views/header.php</file>
-            <file>file:/home/www/musymeshop/application/core/GC.php</file>
-            <file>file:/home/www/musymeshop/addons/cod/manifest.php</file>
-            <file>file:/home/www/musymeshop/application/modules/checkout/views/checkout.php</file>
-            <file>file:/home/www/musymeshop/install/installer/config/database.php</file>
-            <file>file:/home/www/musymeshop/application/modules/settings/language/english/settings_lang.php</file>
-            <file>file:/home/www/musymeshop/application/modules/checkout/views/orderComplete.php</file>
-            <file>file:/home/www/musymeshop/addons/ogone/views/admin/ogone_form.php</file>
-            <file>file:/home/www/musymeshop/install/installer/config/migration.php</file>
-            <file>file:/home/www/musymeshop/themes/musyme/assets/css/main_alex.css</file>
-            <file>file:/home/www/musymeshop/application/core/View.php</file>
-            <file>file:/home/www/musymeshop/application/modules/addresses/views/address_form.php</file>
-            <file>file:/home/www/musymeshop/install/installer/config/config.php</file>
             <file>file:/home/www/musymeshop/application/core/GoCart.php</file>
-            <file>file:/home/www/musymeshop/application/modules/categories/views/categories/products.php</file>
-            <file>file:/home/www/musymeshop/application/controllers/Bootstrap.php</file>
-            <file>file:/home/www/musymeshop/addons/cod/views/codCheckoutForm.php</file>
-            <file>file:/home/www/musymeshop/themes/musyme/views/footer.php</file>
-            <file>file:/home/www/musymeshop/application/modules/checkout/views/shippingMethods.php</file>
-            <file>file:/home/www/musymeshop/install/installer/views/database.php</file>
-            <file>file:/home/www/musymeshop/addons/flat_rate/manifest.php</file>
+            <file>file:/home/www/musymeshop/application/config/autoload.php</file>
+            <file>file:/home/www/musymeshop/index.php</file>
             <file>file:/home/www/musymeshop/addons/ogone/controllers/Ogone.php</file>
-            <file>file:/home/www/musymeshop/addons/ogone/controllers/AdminOgone.php</file>
         </group>
     </open-files>
 </project-private>
